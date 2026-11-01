@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>پنل مدیریت | MK Graphy</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-app">
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="/" aria-label="MK Graphy — وب‌سایت">
+          <span class="brand-mark" aria-hidden="true">MK</span>
+          <span class="admin-brand-copy">
+            <strong>MK Graphy</strong>
+            <small>پنل مدیریت استودیو</small>
+          </span>
+        </a>
+
+        <nav class="admin-nav" aria-label="منوی پنل مدیریت">
+          <button class="admin-nav-btn is-active" type="button" data-admin-tab="overview">
+            <span>داشبورد</span>
+          </button>
+          <button class="admin-nav-btn" type="button" data-admin-tab="orders">
+            <span>سفارش‌های تماس</span>
+            <span class="admin-count-badge" data-pending-badge hidden>۰</span>
+          </button>
+          <button class="admin-nav-btn" type="button" data-admin-tab="projects">
+            <span>نمونه‌کارها</span>
+          </button>
+          <button class="admin-nav-btn" type="button" data-admin-tab="users">
+            <span>کاربران</span>
+          </button>
+          <button class="admin-nav-btn" type="button" data-admin-tab="settings">
+            <span>تنظیمات ادمین</span>
+          </button>
+        </nav>
+
+        <div class="admin-sidebar-foot">
+          <a class="admin-side-link" href="/">مشاهده وب‌سایت</a>
+          <button class="admin-side-link admin-side-link--danger" type="button" data-admin-logout>خروج از حساب</button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div class="admin-topbar-title">
+            <span class="admin-kicker">MK Graphy Admin</span>
+            <h1 data-panel-title>داشبورد</h1>
+            <p data-panel-subtitle>خلاصه وضعیت استودیو و سفارش‌های اخیر</p>
+          </div>
+          <div class="admin-topbar-user">
+            <span data-admin-name>مدیر</span>
+            <a class="admin-top-link" href="/">سایت</a>
+            <button class="admin-top-link admin-top-link--danger" type="button" data-admin-logout>خروج</button>
+          </div>
+        </header>
+
+        <div class="admin-alert" data-admin-global-error role="alert" hidden></div>
+
+        <div class="admin-alert admin-alert--warning" data-password-banner role="status" hidden>
+          <strong>رمز عبور شما هنوز رمز پیش‌فرض راه‌اندازی است.</strong>
+          رمز عبور تولیدشده هنگام نصب در فایل خصوصی <code>admin-credentials.txt</code> (خارج از مخزن پروژه)
+          ذخیره شده است. از تب <b>تنظیمات ادمین</b> یک رمز عبور شخصی تعیین کنید و سپس آن فایل را حذف کنید.
+        </div>
+
+        <!-- Overview -->
+        <section class="admin-panel" data-admin-panel="overview">
+          <div class="admin-stats-grid">
+            <article class="admin-stat-card">
+              <span class="admin-stat-label">کاربران</span>
+              <strong class="admin-stat-value" data-stat="users">۰</strong>
+              <span class="admin-stat-note">حساب‌های ثبت‌شده</span>
+            </article>
+            <article class="admin-stat-card">
+              <span class="admin-stat-label">سفارش‌های تماس</span>
+              <strong class="admin-stat-value" data-stat="orders">۰</strong>
+              <span class="admin-stat-note">کل درخواست‌های ثبت‌شده</span>
+            </article>
+            <article class="admin-stat-card">
+              <span class="admin-stat-label">در انتظار بررسی</span>
+              <strong class="admin-stat-value" data-stat="pendingOrders">۰</strong>
+              <span class="admin-stat-note">سفارش‌های جدید</span>
+            </article>
+            <article class="admin-stat-card">
+              <span class="admin-stat-label">نمونه‌کارها</span>
+              <strong class="admin-stat-value" data-stat="projects">۰</strong>
+              <span class="admin-stat-note"><span data-stat="publishedProjects">۰</span> منتشرشده</span>
+            </article>
+          </div>
+
+          <div class="admin-grid-two">
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <h2>آخرین سفارش‌های تماس</h2>
+                <button class="admin-link-btn" type="button" data-admin-tab="orders">مشاهده همه</button>
+              </div>
+              <div class="admin-recent-list" data-recent-orders></div>
+            </section>
+
+            <section class="admin-card admin-quick-card">
+              <div class="admin-card-head">
+                <h2>دسترسی سریع</h2>
+              </div>
+              <p>از اینجا می‌توانید نمونه‌کار جدید بسازید یا درخواست‌های تماس را بررسی کنید.</p>
+              <div class="admin-quick-actions">
+                <button class="btn btn-primary btn-sm" type="button" data-project-new>افزودن نمونه‌کار</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-admin-tab="orders">بررسی سفارش‌ها</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-admin-tab="users">مشاهده کاربران</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Orders -->
+        <section class="admin-panel" data-admin-panel="orders" hidden>
+          <section class="admin-card">
+            <div class="admin-card-head admin-card-head--wrap">
+              <div>
+                <h2>سفارش‌های تماس</h2>
+                <p class="admin-card-subtitle">وضعیت هر درخواست را تغییر دهید و یادداشت مدیر را ثبت کنید.</p>
+              </div>
+              <label class="admin-inline-field">
+                <span>فیلتر وضعیت</span>
+                <select class="admin-input admin-input--compact" data-order-filter>
+                  <option value="">همه سفارش‌ها</option>
+                  <option value="pending">در انتظار</option>
+                  <option value="contacted">تماس گرفته‌شده</option>
+                  <option value="closed">بسته‌شده</option>
+                </select>
+              </label>
+            </div>
+            <div class="admin-list" data-orders-list></div>
+          </section>
+        </section>
+
+        <!-- Projects -->
+        <section class="admin-panel" data-admin-panel="projects" hidden>
+          <section class="admin-card">
+            <div class="admin-card-head">
+              <div>
+                <h2>نمونه‌کارها</h2>
+                <p class="admin-card-subtitle">متن، تصاویر، ترتیب نمایش و انتشار نمونه‌کارها را مدیریت کنید.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" type="button" data-project-new>+ نمونه‌کار جدید</button>
+            </div>
+            <div class="admin-list" data-projects-list></div>
+          </section>
+        </section>
+
+        <!-- Users -->
+        <section class="admin-panel" data-admin-panel="users" hidden>
+          <section class="admin-card">
+            <div class="admin-card-head">
+              <div>
+                <h2>کاربران</h2>
+                <p class="admin-card-subtitle">اطلاعات ثبت‌نام کاربران و تعداد سفارش‌های آن‌ها.</p>
+              </div>
+            </div>
+            <div class="admin-list" data-users-list></div>
+          </section>
+        </section>
+
+        <!-- Admin settings -->
+        <section class="admin-panel" data-admin-panel="settings" hidden>
+          <section class="admin-card admin-settings-card">
+            <div class="admin-card-head">
+              <div>
+                <h2>تنظیمات حساب مدیر</h2>
+                <p class="admin-card-subtitle">نام، شماره تماس و رمز عبور مدیر را تغییر دهید. برای ذخیره، رمز عبور فعلی لازم است.</p>
+              </div>
+            </div>
+
+            <div class="admin-alert" data-profile-error role="alert" hidden></div>
+            <div class="admin-alert admin-alert--success" data-profile-success role="status" hidden></div>
+
+            <form class="admin-form admin-settings-form" data-admin-profile-form novalidate>
+              <div class="admin-form-grid">
+                <div class="admin-field">
+                  <label for="admin-first-name">نام مدیر</label>
+                  <input class="admin-input" id="admin-first-name" name="firstName" type="text" required />
+                </div>
+                <div class="admin-field">
+                  <label for="admin-last-name">نام خانوادگی مدیر</label>
+                  <input class="admin-input" id="admin-last-name" name="lastName" type="text" required />
+                </div>
+              </div>
+              <div class="admin-field">
+                <label for="admin-profile-phone">شماره موبایل مدیر</label>
+                <input class="admin-input" id="admin-profile-phone" name="phone" type="tel" dir="ltr" required />
+              </div>
+              <div class="admin-form-grid">
+                <div class="admin-field">
+                  <label for="admin-current-password">رمز عبور فعلی <span class="admin-required">*</span></label>
+                  <input class="admin-input" id="admin-current-password" name="currentPassword" type="password" autocomplete="current-password" required />
+                </div>
+                <div class="admin-field">
+                  <label for="admin-new-password">رمز عبور جدید</label>
+                  <input class="admin-input" id="admin-new-password" name="newPassword" type="password" autocomplete="new-password" placeholder="در صورت تغییر پر کنید" />
+                  <span class="admin-field-hint">حداقل ۱۰ کاراکتر، شامل حرف بزرگ و عدد؛ رمز عمومی پذیرفته نمی‌شود.</span>
+                </div>
+              </div>
+              <div class="admin-field">
+                <label for="admin-new-password-confirm">تکرار رمز عبور جدید</label>
+                <input class="admin-input" id="admin-new-password-confirm" name="newPasswordConfirm" type="password" autocomplete="new-password" />
+              </div>
+              <div class="admin-form-actions">
+                <button class="btn btn-primary" type="submit" data-profile-submit>ذخیره تنظیمات</button>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div class="admin-toast" data-admin-toast role="status" hidden></div>
+
+    <!-- Project editor modal -->
+    <div class="admin-modal" id="project-modal" hidden>
+      <div class="admin-modal-backdrop" data-project-close></div>
+      <div class="admin-modal-card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <div class="admin-modal-head">
+          <h2 id="project-modal-title" data-project-modal-title>افزودن نمونه‌کار</h2>
+          <button class="admin-modal-close" type="button" data-project-close aria-label="بستن">×</button>
+        </div>
+
+        <form class="admin-form" data-project-form novalidate>
+          <div class="admin-alert" data-project-form-error role="alert" hidden></div>
+
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="project-slug">شناسه انگلیسی</label>
+              <input class="admin-input" id="project-slug" name="slug" type="text" dir="ltr" placeholder="my-project" required />
+            </div>
+            <div class="admin-field">
+              <label for="project-type">نوع پروژه</label>
+              <select class="admin-input" id="project-type" name="type" required>
+                <option value="web">توسعه وب</option>
+                <option value="video">تولید ویدیو</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="project-category">دسته‌بندی</label>
+              <input class="admin-input" id="project-category" name="categoryName" type="text" required />
+            </div>
+            <div class="admin-field">
+              <label for="project-title">عنوان</label>
+              <input class="admin-input" id="project-title" name="title" type="text" required />
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="project-subtitle">زیرعنوان</label>
+            <input class="admin-input" id="project-subtitle" name="subtitle" type="text" required />
+          </div>
+
+          <div class="admin-field">
+            <label for="project-short">توضیح کوتاه (نمایش در کارت)</label>
+            <textarea class="admin-input" id="project-short" name="shortDescription" rows="2" required></textarea>
+          </div>
+
+          <div class="admin-field">
+            <label for="project-full">توضیحات کامل</label>
+            <textarea class="admin-input" id="project-full" name="fullDescription" rows="5" required></textarea>
+          </div>
+
+          <div class="admin-form-grid admin-form-grid--three">
+            <div class="admin-field">
+              <label for="project-client">کارفرما</label>
+              <input class="admin-input" id="project-client" name="client" type="text" required />
+            </div>
+            <div class="admin-field">
+              <label for="project-year">سال</label>
+              <input class="admin-input" id="project-year" name="year" type="text" required />
+            </div>
+            <div class="admin-field">
+              <label for="project-duration">مدت زمان</label>
+              <input class="admin-input" id="project-duration" name="duration" type="text" required />
+            </div>
+          </div>
+
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="project-services">خدمات ارائه‌شده (هر خط یک مورد)</label>
+              <textarea class="admin-input" id="project-services" name="servicesProvided" rows="4"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="project-technologies">تکنولوژی‌ها (هر خط یا با کاما)</label>
+              <textarea class="admin-input" id="project-technologies" name="technologies" rows="4"></textarea>
+            </div>
+          </div>
+
+          <fieldset class="admin-fieldset">
+            <legend>شاخص‌های آماری (حداکثر ۳ مورد)</legend>
+            <div class="admin-stats-fields">
+              <div class="admin-field"><label>عنوان شاخص ۱</label><input class="admin-input" name="statLabel" type="text" /></div>
+              <div class="admin-field"><label>مقدار شاخص ۱</label><input class="admin-input" name="statValue" type="text" /></div>
+              <div class="admin-field"><label>عنوان شاخص ۲</label><input class="admin-input" name="statLabel" type="text" /></div>
+              <div class="admin-field"><label>مقدار شاخص ۲</label><input class="admin-input" name="statValue" type="text" /></div>
+              <div class="admin-field"><label>عنوان شاخص ۳</label><input class="admin-input" name="statLabel" type="text" /></div>
+              <div class="admin-field"><label>مقدار شاخص ۳</label><input class="admin-input" name="statValue" type="text" /></div>
+            </div>
+          </fieldset>
+
+          <div class="admin-form-grid">
+            <div class="admin-field">
+              <label for="project-challenge">چالش کارفرما</label>
+              <textarea class="admin-input" id="project-challenge" name="challenge" rows="4" required></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="project-solution">راهکار استودیو</label>
+              <textarea class="admin-input" id="project-solution" name="solution" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label for="project-testimonial">نظر کارفرما (اختیاری)</label>
+            <textarea class="admin-input" id="project-testimonial" name="testimonial" rows="2"></textarea>
+          </div>
+
+          <fieldset class="admin-fieldset">
+            <legend>تصاویر نمونه‌کار</legend>
+            <p class="admin-help">تصاویر JPEG، PNG یا WebP؛ حداکثر ۶ مگابایت هر تصویر. تصاویر به‌صورت خودکار فشرده می‌شوند.</p>
+            <div class="admin-upload-grid">
+              <div class="admin-upload-box">
+                <label for="project-image">تصویر کاور <span class="admin-required">*</span></label>
+                <input class="admin-file" id="project-image" type="file" accept="image/jpeg,image/png,image/webp" data-image-input="image" />
+                <div class="admin-image-preview" data-image-preview="image" hidden></div>
+                <button class="admin-link-btn admin-link-btn--danger" type="button" data-clear-image="image">حذف تصویر</button>
+              </div>
+              <div class="admin-upload-box">
+                <label for="project-banner">تصویر بنر</label>
+                <input class="admin-file" id="project-banner" type="file" accept="image/jpeg,image/png,image/webp" data-image-input="banner" />
+                <div class="admin-image-preview" data-image-preview="banner" hidden></div>
+                <button class="admin-link-btn admin-link-btn--danger" type="button" data-clear-image="banner">حذف تصویر</button>
+                <small>اگر خالی بماند از تصویر کاور استفاده می‌شود.</small>
+              </div>
+            </div>
+
+            <div class="admin-upload-grid admin-upload-grid--gallery">
+              <div class="admin-upload-box">
+                <label for="project-gallery-0">تصویر گالری ۱ <span class="admin-required">*</span></label>
+                <input class="admin-file" id="project-gallery-0" type="file" accept="image/jpeg,image/png,image/webp" data-image-input="gallery0" />
+                <div class="admin-image-preview" data-image-preview="gallery0" hidden></div>
+                <button class="admin-link-btn admin-link-btn--danger" type="button" data-clear-image="gallery0">حذف تصویر</button>
+              </div>
+              <div class="admin-upload-box">
+                <label for="project-gallery-1">تصویر گالری ۲</label>
+                <input class="admin-file" id="project-gallery-1" type="file" accept="image/jpeg,image/png,image/webp" data-image-input="gallery1" />
+                <div class="admin-image-preview" data-image-preview="gallery1" hidden></div>
+                <button class="admin-link-btn admin-link-btn--danger" type="button" data-clear-image="gallery1">حذف تصویر</button>
+              </div>
+              <div class="admin-upload-box">
+                <label for="project-gallery-2">تصویر گالری ۳</label>
+                <input class="admin-file" id="project-gallery-2" type="file" accept="image/jpeg,image/png,image/webp" data-image-input="gallery2" />
+                <div class="admin-image-preview" data-image-preview="gallery2" hidden></div>
+                <button class="admin-link-btn admin-link-btn--danger" type="button" data-clear-image="gallery2">حذف تصویر</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="admin-form-grid admin-form-grid--three">
+            <div class="admin-field">
+              <label for="project-sort">ترتیب نمایش</label>
+              <input class="admin-input" id="project-sort" name="sortOrder" type="number" min="0" max="100000" step="10" />
+            </div>
+            <div class="admin-field admin-checkbox-field">
+              <label><input id="project-published" name="isPublished" type="checkbox" checked /> منتشر شود</label>
+            </div>
+          </div>
+
+          <div class="admin-form-actions">
+            <button class="btn btn-primary" type="submit" data-project-submit>ذخیره نمونه‌کار</button>
+            <button class="btn btn-secondary" type="button" data-project-close>انصراف</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

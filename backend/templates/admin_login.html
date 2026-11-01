@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>ورود به پنل مدیریت | MK Graphy</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin-login-page">
+    <main class="admin-login-shell">
+      <div class="admin-login-card">
+        <a class="admin-login-brand" href="/">
+          <span class="brand-mark" aria-hidden="true">MK</span>
+          <span>
+            <strong>MK Graphy</strong>
+            <small>پنل مدیریت استودیو</small>
+          </span>
+        </a>
+
+        <div class="admin-login-heading">
+          <span class="admin-kicker">ورود مدیریت</span>
+          <h1>ورود به پنل مدیریت</h1>
+          <p>برای مدیریت نمونه‌کارها، سفارش‌های تماس و کاربران وارد حساب مدیر شوید.</p>
+        </div>
+
+        <div class="admin-alert" data-login-error role="alert" hidden></div>
+
+        <form class="admin-form" data-admin-login-form novalidate>
+          <div class="admin-field">
+            <label for="admin-phone">شماره موبایل مدیر</label>
+            <input
+              class="admin-input"
+              id="admin-phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="username"
+              placeholder="شماره موبایل"
+              dir="ltr"
+              required
+            />
+          </div>
+          <div class="admin-field">
+            <label for="admin-password">رمز عبور</label>
+            <input
+              class="admin-input"
+              id="admin-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="رمز عبور مدیر"
+              required
+            />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" data-login-submit>
+            ورود به پنل مدیریت
+          </button>
+        </form>
+
+        <div class="admin-login-foot">
+          <a href="/">بازگشت به وب‌سایت</a>
+          <span>دسترسی فقط برای مدیران مجاز است.</span>
+        </div>
+      </div>
+      <p class="admin-login-note">ورود به این بخش فقط با حساب مدیر امکان‌پذیر است و همه تلاش‌های ناموفق ثبت می‌شود.</p>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin-login.js"></script>
+  </body>
+</html>
